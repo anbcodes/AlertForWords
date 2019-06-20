@@ -1,0 +1,17 @@
+{
+    "manifest_version": 2,
+   
+    "name": "Find Words and Alert",
+    "version": "0.1.0",
+    "description": "finds specified words one a page if so it alerts you",
+    "options_page": "options.html",
+    "permissions": [
+        "activeTab",
+        "storage"
+      ],
+    "content_scripts": [{
+      "js": ["index.js"],
+      "matches": ["*://*/*"]
+    }]
+   
+  }
