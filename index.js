@@ -1,25 +1,27 @@
+function check(item) {
+    if (item.kind === "regex") {
+        let regex = new RegExp(item.value, "g")
+        let body = document.body.innerText
+        if (body.match(regex)) {
+            alert("Regex found!")
+        }
+    } else {
+        let regex = new RegExp(`(${item.value})`, "g")
+        let body = document.body.innerText
+        if (body.match(regex)) {
+            alert("Word found!")
+        }
+    }
+}
+
 chrome.storage.sync.get({
-    text: '',
+    storage: [],
     time: 1000
   }, (items) => {
-    let textToFind = items.text;
-    let regexStr = "("
-    textToFind.split("\n").forEach((word, index) => {
-        if (index != textToFind.split("\n").length-1) {
-            regexStr += word + "|"
-        } else {
-            regexStr += word
-        }
-    });
-    regexStr += ")"
-
-    let regex = new RegExp(regexStr, "gi")
     setTimeout(() => {
-        let text = document.body.innerText
-        let found = text.match(regex)
-        if (found) {
-            alert(`Found Word`)
-        }
+        items.storage.forEach(item => {
+            check(item)
+        });
     }, items.time)
     
 });
