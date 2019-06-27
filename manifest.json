@@ -3,7 +3,7 @@
    
     "name": "Find Words and Alert",
     "version": "0.1.0",
-    "description": "finds specified words one a page if so it alerts you",
+    "description": "Finds specified words/regex on a webpage and alerts you",
     "options_page": "options.html",
     "permissions": [
         "activeTab",

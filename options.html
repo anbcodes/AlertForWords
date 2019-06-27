@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <h2>Type words seperated by newlines (case insensitive)</h2>
-        <textarea id="textarea"></textarea>
-        <h2>Time to wait before alerting you (in ms)</h2>
-        <input id="time" type=text value=1000></input>
+        <h2>List the words/regex here:</h2>
+        <div id=input>
+
+        </div>
+        <button id="addButton">+</button>
+        <h2>Time to wait before checking for the words (in ms)</h2>
+        <input id="time" type=text value=1000></input><br>
         <button id="submit">save</button>
         <h3 id="status"></h3>
         <script src="options.js"></script>
