@@ -16,12 +16,20 @@ function check(item) {
 
 chrome.storage.sync.get({
     storage: [],
-    time: 1000
+    time: 1000,
+    interval: 0
   }, (items) => {
     setTimeout(() => {
         items.storage.forEach(item => {
             check(item)
         });
+        if (items.interval != 0) {
+            setInterval(() => {
+                items.storage.forEach(item => {
+                    check(item)
+                });
+            }, items.interval)
+        }
     }, items.time)
     
 });

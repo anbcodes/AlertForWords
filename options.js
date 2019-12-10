@@ -32,12 +32,15 @@ function addItemToDiv(div, value, kind) {
 let doneButton = document.getElementById("submit")
 chrome.storage.sync.get({
     storage: [],
-    time: 1000
+    time: 1000,
+    interval: 0
   }, function(items) {
     let inputDiv = document.getElementById("input")
     items.storage.forEach(item => {
         addItemToDiv(inputDiv, item.value, item.kind)
     });
+    document.getElementById('time').value = items.time
+    document.getElementById('interval').value = items.interval
     let addButton = document.getElementById("addButton")
     addButton.className = "add"
     addButton.onclick = () => {
@@ -51,9 +54,12 @@ doneButton.onclick = () => {
         storage.push({value:input.children[0].value, kind:input.children[1].innerText})
     })
     let time = document.getElementById('time').value
+    let interval = document.getElementById('interval').value
+
     chrome.storage.sync.set({
         storage: storage,
-        time: time
+        time: time,
+        interval: interval
     }, function() {
         var status = document.getElementById('status');
         status.textContent = 'Options saved.';
