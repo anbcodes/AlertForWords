@@ -2,7 +2,7 @@
     "manifest_version": 2,
    
     "name": "Find Words and Alert",
-    "version": "1.1.1",
+    "version": "1.2.0",
     "description": "Finds specified words/regex on a webpage and alerts you",
     "options_page": "options.html",
     "permissions": [
